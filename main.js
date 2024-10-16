@@ -8,14 +8,24 @@ const shipHeight=30;
 let shipX=canvas.width/2-shipWidth/2;
 const shipY=canvas.height-shipHeight-10;
 
+//自機操作
 let ship=
 {
     x: shipX,y:shipY,width:shipWidth,height:shipHeight,dx:0
 };
+
+//弾丸発射
 let bullets=[];
 
-//...(イベントリスナー登録)
+//出現する敵の情報
+let enemies=[];
 
+//ゲームのスコアの保持
+let score=0;
+
+//イベントリスナー登録
+
+//キーボードのキーを押した時と離した時の自機の動き
 function keyDownHandler(e)
 {
     if(e.key==="Right"||e.key==="ArrowRoght")
@@ -36,6 +46,7 @@ function keyUpHandler(e)
         }
 }
 
+//スペースキーを押したときに弾丸を発射
 function keyPressHandler(e)
 {
     if(e.key===" "||e.key==="Spacebar")
@@ -45,3 +56,52 @@ function keyPressHandler(e)
             x:ship.x+ship.width/2-2.5,y:ship.y,width:5,height:10,dy:-5});
     }
 }
+
+//敵の描画
+function drawEnemies()
+{
+    ctx.fillStyle="#00ff00";
+    drawEnemies.forEach((enemy,index)=>
+    {
+        ctx.fillRect(enemy.x,enemy.y,enemy.width,enemy.height);
+        enemy.y+=enemy.dy;
+        if(enemy.y>canvas.height)
+        {
+            drawEnemies.splice(index,1);
+            score--;
+        }
+    });
+}
+
+//ランダムに敵を出現
+function createEnemies()
+{
+    if(Math.random()<0.02)
+        {
+            let enemyX=Math.random()*(canvas.width-30);
+
+            drawEnemies.push({ x:enemyX,y:0,width:30,height:30,dy:2});
+        }
+}
+
+//当たり判定
+function detectCollisions()
+{
+    bullets,forEach((bullet,bulletIndex)=>
+    {
+        drawEnemies.forEach((enemy,enemyIndex)=>
+        {
+            if(
+                bullet.x<enemy.x+enemy.width&&
+                bullet.x+bullet.width>enemy.x&&
+                bullet.y<enemy.y+enemyIndex.height&&
+                bullet.y+bullet.height>enemy.y
+            ){
+                bullets.splice(bulletIndex,1);
+                enemies.splice(enemyIndex,1);
+                score++;
+            }
+        });
+    });
+}
+

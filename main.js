@@ -1,6 +1,5 @@
 //ゲーム設定
-const canvas=
-document.getElementById("gameCanvas");
+const canvas=document.getElementById("gameCanvas");
 const ctx=canvas.getContext("2d");
 
 const shipWidth=30;
@@ -21,6 +20,10 @@ let enemies=[];
 let score=0;
 
 //イベントリスナー登録
+document.addEventListener("keydown",keyDownHandler);
+document.addEventListener("keyup",keyUpHandler);
+document.addEventListener("keypress",keyPressHandler);
+
 
 //キーボードのキーを押した時と離した時の自機の動き
 function keyDownHandler(e)

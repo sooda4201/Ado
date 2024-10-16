@@ -115,7 +115,7 @@ function drawBullets()
     ctx.fillStyle="#FF0000";
     bullets.forEach((bullet,index)=>
     {
-        ctx.fillRect(bullet.x,bullet.y,bullet.width,bullet.height):
+        ctx.fillRect(bullet.x,bullet.y,bullet.width,bullet.height);
         bullet.y += bullet.dy;
         if(bullet.y<0)
         {

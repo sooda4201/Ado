@@ -9,10 +9,7 @@ let shipX=canvas.width/2-shipWidth/2;
 const shipY=canvas.height-shipHeight-10;
 
 //自機操作
-let ship=
-{
-    x: shipX,y:shipY,width:shipWidth,height:shipHeight,dx:0
-};
+let ship={x: shipX,y:shipY,width:shipWidth,height:shipHeight,dx:0};
 
 //弾丸発射
 let bullets=[];

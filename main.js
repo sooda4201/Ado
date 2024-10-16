@@ -105,3 +105,49 @@ function detectCollisions()
     });
 }
 
+//自機の描画
+function drawShip()
+{
+    ctx.fillStyle="#0095DD";
+    ctx.fillRect(ship.x,ship.y,ship.width,ship.height);
+}
+
+//弾丸の描画
+function drawBullets()
+{
+    ctx.fillStyle="#FF0000";
+    bullets.forEach((bullet,index)=>
+    {
+        ctx.fillRect(bullet.x,bullet.y,bullet.width,bullet.height):
+        bullet.y += bullet.dy;
+        if(bullet.y<0)
+        {
+            bullets.splice(index,1);
+        }
+    });
+}
+
+//ゲームループ
+function update()
+{
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ship.x+=ship.dx;
+    if(ship.x<0)ship.x=0;
+    if(ship.x+ship.width>canvas.width)ship.x=
+    canvas.width-ship.width;
+
+    drawShip();
+    drawBullets();
+    drawEnemies();
+    createEnemies();
+    detectCollisions();
+
+    requestAnimationFrame(update);
+}
+
+//ゲーム開始
+document.addEventLisrener("DOMConstLoaded",(event)=>
+{
+    update();
+});

@@ -57,6 +57,28 @@ function keyPressHandler(e)
     }
 }
 
+//自機の描画
+function drawShip()
+{
+    ctx.fillStyle="#0095DD";
+    ctx.fillRect(ship.x,ship.y,ship.width,ship.height);
+}
+
+//弾丸の描画
+function drawBullets()
+{
+    ctx.fillStyle="#FF0000";
+    bullets.forEach((bullet,index)=>
+    {
+        ctx.fillRect(bullet.x,bullet.y,bullet.width,bullet.height);
+        bullet.y += bullet.dy;
+        if(bullet.y<0)
+        {
+            bullets.splice(index,1);
+        }
+    });
+}
+
 //敵の描画
 function drawEnemies()
 {
@@ -105,27 +127,6 @@ function detectCollisions()
     });
 }
 
-//自機の描画
-function drawShip()
-{
-    ctx.fillStyle="#0095DD";
-    ctx.fillRect(ship.x,ship.y,ship.width,ship.height);
-}
-
-//弾丸の描画
-function drawBullets()
-{
-    ctx.fillStyle="#FF0000";
-    bullets.forEach((bullet,index)=>
-    {
-        ctx.fillRect(bullet.x,bullet.y,bullet.width,bullet.height);
-        bullet.y += bullet.dy;
-        if(bullet.y<0)
-        {
-            bullets.splice(index,1);
-        }
-    });
-}
 
 //ゲームループ
 function update()

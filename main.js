@@ -82,14 +82,14 @@ function drawBullets()
 //敵の描画
 function drawEnemies()
 {
-    ctx.fillStyle="#00ff00";
+    ctx.fillStyle="#00FF00";
     drawEnemies.forEach((enemy,index)=>
     {
         ctx.fillRect(enemy.x,enemy.y,enemy.width,enemy.height);
         enemy.y+=enemy.dy;
         if(enemy.y>canvas.height)
         {
-            drawEnemies.splice(index,1);
+            enemies.splice(index,1);
             score--;
         }
     });
@@ -102,7 +102,7 @@ function createEnemies()
         {
             let enemyX=Math.random()*(canvas.width-30);
 
-            drawEnemies.push({ x:enemyX,y:0,width:30,height:30,dy:2});
+            enemies.push({ x:enemyX,y:0,width:30,height:30,dy:2});
         }
 }
 
@@ -111,12 +111,12 @@ function detectCollisions()
 {
     bullets,forEach((bullet,bulletIndex)=>
     {
-        drawEnemies.forEach((enemy,enemyIndex)=>
+        enemies.forEach((enemy,enemyIndex)=>
         {
             if(
                 bullet.x<enemy.x+enemy.width&&
                 bullet.x+bullet.width>enemy.x&&
-                bullet.y<enemy.y+enemyIndex.height&&
+                bullet.y<enemy.y+enemy.height&&
                 bullet.y+bullet.height>enemy.y
             ){
                 bullets.splice(bulletIndex,1);
@@ -148,7 +148,7 @@ function update()
 }
 
 //ゲーム開始
-document.addEventLisrener("DOMConstLoaded",(event)=>
+document.addEventListener("DOMContentLoaded",(event)=>
 {
     update();
 });

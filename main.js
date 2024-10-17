@@ -81,7 +81,7 @@ function drawBullets()
 function drawEnemies()
 {
     ctx.fillStyle="#00FF00";
-    drawEnemies.forEach((enemy,index)=>
+    enemies.forEach((enemy,index)=>
     {
         ctx.fillRect(enemy.x,enemy.y,enemy.width,enemy.height);
         enemy.y+=enemy.dy;

@@ -28,7 +28,7 @@ document.addEventListener("keypress",keyPressHandler);
 //キーボードのキーを押した時と離した時の自機の動き
 function keyDownHandler(e)
 {
-    if(e.key==="Right"||e.key==="ArrowRoght")
+    if(e.key==="Right"||e.key==="ArrowRight")
     {
         ship.dx=5;
     }else if(e.key==="Left"||e.key==="ArrowLeft")
@@ -40,7 +40,7 @@ function keyDownHandler(e)
 function keyUpHandler(e)
 {
     if(e.key==="Right"||e.key==="ArrowRight"
-        ||e.key==="Lfet"||e.key==="ArrowLeft")
+        ||e.key==="Left"||e.key==="ArrowLeft")
         {
             ship.dx=0;
         }

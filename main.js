@@ -51,8 +51,7 @@ function keyPressHandler(e)
 {
     if(e.key===" "||e.key==="Spacebar")
     {
-        bullets.push
-        ({ x:ship.x+ship.width/2-2.5,y:ship.y,width:5,height:10,dy:-5});
+        bullets.push({ x:ship.x+ship.width/2-2.5,y:ship.y,width:5,height:10,dy:-5});
     }
 }
 

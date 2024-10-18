@@ -26,14 +26,7 @@ document.addEventListener("keypress",keyPressHandler);
 
 
 //キーボードのキーを押した時と離した時の自機の動き
-document.onkeydown=function(e)
-{
-    switch(e)
-    {
-        case 39:
-            ship(-1,0);
-    }
-}
+ 
 
 function keyUpHandler(e)
 {

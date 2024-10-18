@@ -28,7 +28,13 @@ document.addEventListener("keypress",keyPressHandler);
 //キーボードのキーを押した時と離した時の自機の動き
 function keyDownHandler(e)
 {
-    if(e.krey)
+    if(e.krey==="Right"||e.key==="ArrowRight") {
+        ship.dx = 5;
+      } else if (e.key === "Left" || e.key === "ArrowLeft") {
+        ship.dx = -5;
+      }
+    }
+  
 }
 
     

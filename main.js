@@ -26,14 +26,12 @@ document.addEventListener("keypress",keyPressHandler);
 
 
 //キーボードのキーを押した時と離した時の自機の動き
-function keyDownHandler(e)
+document.onkeydown=function(e)
 {
-    if(e.key==="Right"||e.key==="ArrowRight")
+    switch(e)
     {
-        ship.dx=5;
-    }else if(e.key==="Left"||e.key==="ArrowLeft")
-    {
-        ship.dx=-5;
+        case 39:
+            ship(-1,0);
     }
 }
 

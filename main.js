@@ -26,7 +26,12 @@ document.addEventListener("keypress",keyPressHandler);
 
 
 //キーボードのキーを押した時と離した時の自機の動き
- 
+function keyDownHandler(e)
+{
+    if(e.krey)
+}
+
+    
 
 function keyUpHandler(e)
 {

@@ -33,11 +33,7 @@ function keyDownHandler(e)
       } else if (e.key === "Left" || e.key === "ArrowLeft") {
         ship.dx = -5;
       }
-    }
-  
-}
-
-    
+    }  
 
 function keyUpHandler(e)
 {
@@ -135,8 +131,7 @@ function update()
 
     ship.x+=ship.dx;
     if(ship.x<0)ship.x=0;
-    if(ship.x+ship.width>canvas.width)ship.x=
-    canvas.width-ship.width;
+    if(ship.x+ship.width>canvas.width)ship.x=canvas.width-ship.width;
 
     drawShip();
     drawBullets();

@@ -1,4 +1,7 @@
 //
+const GAME_SPEED=1000/60;
+
+//
 const SCREEN_W=180;
 const SCREEN_H=320;
 
@@ -59,6 +62,19 @@ class Star
 let star=[];
 for(let i=0;i<STAR_MAX;i++)star[i]=new Star();
 
-con.fillStyle="black";
-con.fillRect(0,0,SCREEN_W,SCREEN_H);
-for(let i=0;i<STAR_MAX;i++)star[i].draw();
+//
+setInterval(gameLoop,GAME_SPEED);
+
+//
+function gameLoop()
+{
+    //移動
+    for(let i=0;i<STAR_MAX;i++)star[i].update();
+
+    //描画
+    con.fillStyle="black";
+    con.fillRect(0,0,SCREEN_W,SCREEN_H);
+    for(let i=0;i<STAR_MAX;i++)star[i].draw();
+    
+    //
+}

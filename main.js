@@ -14,10 +14,16 @@ const FIELD_W=SCREEN_W*2;
 const FIELD_H=SCREEN_H*2;
 
 //
-let canvas=document.getElementById("can");
+let can=document.getElementById("can");
 let con=can.getContext("2d");
 can.width=CANVAS_W;
 can.height=CANVAS_H;
+
+//
+let vcan=document.createElement("canvas"); 
+let vcon=vcan.getContext("2d");
+vcan.width=FIELD_W;
+vcan.height=FIELD_H; 
 
 //
 const STAR_MAX=300;
@@ -42,8 +48,8 @@ class Star
 
     draw()
     {
-        con.fillStyle=rand(0,2)!=0?"66f":"#8af";
-        con.fillRect(this.x>>8,this.y>>8,this.sz,this.sz);
+        vcon.fillStyle=rand(0,2)!=0?"66f":"#8af";
+        vcon.fillRect(this.x>>8,this.y>>8,this.sz,this.sz);
     }
 
     update()
@@ -72,7 +78,7 @@ function gameLoop()
     for(let i=0;i<STAR_MAX;i++)star[i].update();
 
     //描画
-    con.fillStyle="black";
-    con.fillRect(0,0,SCREEN_W,SCREEN_H);
+    vcon.fillStyle="black";
+    vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
     for(let i=0;i<STAR_MAX;i++)star[i].draw();
 }

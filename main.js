@@ -58,4 +58,7 @@ class Star
 //
 let star=[];
 for(let i=0;i<STAR_MAX;i++)star[i]=new Star();
+
+con.fillStyle="black";
+con.fillRect(0,0,SCREEN_W,SCREEN_H);
 for(let i=0;i<STAR_MAX;i++)star[i].draw();

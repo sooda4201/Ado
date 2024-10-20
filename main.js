@@ -14,6 +14,10 @@ const FIELD_W=SCREEN_W*2;
 const FIELD_H=SCREEN_H*2;
 
 //
+let camera_x=0;
+let camera_y=0;
+
+//
 let can=document.getElementById("can");
 let con=can.getContext("2d");
 can.width=CANVAS_W;
@@ -48,6 +52,11 @@ class Star
 
     draw()
     {
+        let x=this.x>>8;
+        let y=this.y>>8;
+        if(x<camera_x||x>=camera_x+SCREEN_W||
+            y<camera_y||y>=camera_y+SCREEN_H
+        )return;
         vcon.fillStyle=rand(0,2)!=0?"66f":"#8af";
         vcon.fillRect(this.x>>8,this.y>>8,this.sz,this.sz);
     }
@@ -83,6 +92,6 @@ function gameLoop()
     for(let i=0;i<STAR_MAX;i++)star[i].draw();
 
     //
-    con.drawImage(vcan,0,0,SCREEN_W,SCREEN_H,
+    con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,
         0,0,CANVAS_W,CANVAS_H);
 }

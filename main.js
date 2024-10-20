@@ -17,6 +17,9 @@ const FIELD_H=SCREEN_H*2;
 let camera_x=0;
 let camera_y=0;
 
+ //
+ let star=[];
+
 //
 let can=document.getElementById("can");
 let con=can.getContext("2d");
@@ -76,8 +79,7 @@ class Star
 //
 function gameInit()
 {
-    //
-    let star=[];
+   
     for(let i=0;i<STAR_MAX;i++)star[i]=new Star();
     //
     setInterval(gameLoop,GAME_SPEED);
@@ -99,4 +101,10 @@ function gameLoop()
     //
     con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,
         0,0,CANVAS_W,CANVAS_H);
+}
+
+//
+window.onload=function()
+{
+    gameInit();
 }

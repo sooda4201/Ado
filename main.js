@@ -25,7 +25,10 @@ let camera_y=0;
  spriteImage.src="sprite";
 
  //
- 
+function drawSprite()
+{
+    vcon.drawImage(spriteImage);
+}
 
 //
 let can=document.getElementById("can");
@@ -105,6 +108,7 @@ function gameLoop()
     vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
     for(let i=0;i<STAR_MAX;i++)star[i].draw();
 
+    drawSprite(2,100<<8,100<<8);
     //
     con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,
         0,0,CANVAS_W,CANVAS_H);

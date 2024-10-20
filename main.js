@@ -58,7 +58,7 @@ class Star
             y<camera_y||y>=camera_y+SCREEN_H
         )return;
         vcon.fillStyle=rand(0,2)!=0?"66f":"#8af";
-        vcon.fillRect(this.x>>8,this.y>>8,this.sz,this.sz);
+        vcon.fillRect(x,y,this.sz,this.sz);
     }
 
     update()

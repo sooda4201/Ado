@@ -20,12 +20,6 @@ let camera_y=0;
  //
  let star=[];
 
- //
- let spriteImage=new Image();
- spriteImage.src="sprite";
-
-
-
 //
 let can=document.getElementById("can");
 let con=can.getContext("2d");

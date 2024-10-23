@@ -1,47 +1,47 @@
-//
+//ゲームスピード
 const GAME_SPEED=1000/60;
 
-//
+//画面サイズ
 const SCREEN_W=180;
 const SCREEN_H=320;
 
-//
+//キャンバスサイズ
 const CANVAS_W=SCREEN_W*2;
 const CANVAS_H=SCREEN_H*2;
 
-//
+//フィールドサイズ
 const FIELD_W=SCREEN_W*2;
 const FIELD_H=SCREEN_H*2;
 
-//
+//カメラの座標
 let camera_x=0;
 let camera_y=0;
 
- //
+ //星の実体
  let star=[];
 
-//
+//キャンバス
 let can=document.getElementById("can");
 let con=can.getContext("2d");
 can.width=CANVAS_W;
 can.height=CANVAS_H;
 
-//
+//仮想画面
 let vcan=document.createElement("canvas"); 
 let vcon=vcan.getContext("2d");
 vcan.width=FIELD_W;
 vcan.height=FIELD_H; 
 
-//
+//星の数
 const STAR_MAX=300;
 
-//
+//ランダム
 function rand(min,max)
 {
     return Math.floor(Math.random()*(max-min+1))+min;
 }
 
-//
+//星クラス
 class Star
 {
     constructor()

@@ -97,6 +97,11 @@ function gameLoop()
     vcon.fillStyle="black";
     vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
     for(let i=0;i<STAR_MAX;i++)star[i].draw();
+
+    //
+    con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,
+    0,0,CANVAS_W,CANVAS_H
+    );
 }
 
 //

@@ -119,5 +119,5 @@ window.onload=function()
 {
     gameInit();
 
-    ctx.drawImage(image,0,0);
+    context.drawImage(image,0,0);
 }

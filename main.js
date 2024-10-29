@@ -35,6 +35,16 @@ vcan.height=FIELD_H;
 //星の数
 const STAR_MAX=300;
 
+//
+class sprit
+{
+    constructor()
+    {
+        const image =new Image();
+        image.src="sprite.png";
+    }
+}
+
 //ランダム
 function rand(min,max)
 {
@@ -108,4 +118,6 @@ function gameLoop()
 window.onload=function()
 {
     gameInit();
+
+    ctx.drawImage(image,0,0);
 }

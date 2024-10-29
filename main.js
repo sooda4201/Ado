@@ -36,7 +36,7 @@ vcan.height=FIELD_H;
 const STAR_MAX=300;
 
 //
-class sprit
+class sprite
 {
     constructor()
     {
@@ -119,5 +119,5 @@ window.onload=function()
 {
     gameInit();
 
-    context.drawImage(image,0,0);
+    context.drawImage(sprite(0),0,0);
 }

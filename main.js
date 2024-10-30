@@ -121,7 +121,7 @@ window.onload=function()
 }
 
 //
-image.onload=function()
+image.onload=()=>
 {
     context.drawImage(sprite(0),0,0);
 };

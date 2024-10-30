@@ -118,6 +118,10 @@ function gameLoop()
 window.onload=function()
 {
     gameInit();
+}
 
+//
+image.onload=()=>
+{
     context.drawImage(sprite(0),0,0);
 }

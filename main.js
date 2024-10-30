@@ -124,4 +124,4 @@ window.onload=function()
 image.onload=function()
 {
     context.drawImage(sprite(0),0,0);
-}
+};

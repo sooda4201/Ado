@@ -41,7 +41,7 @@ class sprite
     constructor()
     {
         let img=document.getElementById("sprite.png");
-        image.src="sprite.png";
+        img.src="sprite.png";
     }
 }
 

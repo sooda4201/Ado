@@ -40,7 +40,7 @@ class sprite
 {
     constructor()
     {
-        const image =new Image();
+        let img=document.getElementById("sprite.png");
         image.src="sprite.png";
     }
 }

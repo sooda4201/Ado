@@ -40,7 +40,7 @@ const image = new Image();
 image.src = 'sprite.png';
 
 image.onload = () =>{
-    con.drawImaage(image,0,0);
+    con.drawImaage(image,0,0,150,200);
 };
 
 //ランダム

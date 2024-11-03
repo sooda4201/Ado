@@ -36,14 +36,7 @@ vcan.height=FIELD_H;
 const STAR_MAX=300;
 
 //
-class sprite
-{
-    constructor()
-    {
-        let img=document.getElementById("sprite.png");
-        img.src="sprite.png";
-    }
-}
+ 
 
 //ランダム
 function rand(min,max)

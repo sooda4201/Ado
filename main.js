@@ -39,9 +39,9 @@ const STAR_MAX=300;
 const image = new Image();
 image.src = 'sprite.png';
 
-image.onload = () =>{
-    vcon.drawImage(image,0,0);
-};
+//image.onload =function(){
+   
+//};
 
 //ランダム
 function rand(min,max)
@@ -116,5 +116,6 @@ function gameLoop()
 window.onload=function()
 {
     gameInit();
+    vcon.drawImage(image,0,0);
 }
 

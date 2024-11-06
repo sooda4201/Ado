@@ -35,7 +35,7 @@ vcan.height=FIELD_H;
 //星の数
 const STAR_MAX=300;
 
-//
+//自機の描画
 const image = new Image();
 image.src = 'sprite.png';
 
@@ -96,13 +96,13 @@ function gameInit()
 }
 
 
-//
+//ゲームループ
 function gameLoop()
 {
-    //移動
+    //移動の処理
     for(let i=0;i<STAR_MAX;i++)star[i].update();
 
-    //描画
+    //描画の処理
     vcon.fillStyle="black";
     vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
     for(let i=0;i<STAR_MAX;i++)star[i].draw();

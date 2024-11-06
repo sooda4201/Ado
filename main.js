@@ -38,7 +38,6 @@ const STAR_MAX=300;
 //自機の描画
 const image = new Image();
 image.src = 'sprite.png';
-image.src = 'sprite(1).png';
 
 function drawSprite()
 {

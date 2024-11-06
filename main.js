@@ -39,9 +39,10 @@ const STAR_MAX=300;
 const image = new Image();
 image.src = 'sprite.png';
 
-//image.onload =function(){
-   
-//};
+function drawSprite()
+{
+    vcon.drawImage(image,0,0);
+};
 
 //ランダム
 function rand(min,max)
@@ -105,8 +106,9 @@ function gameLoop()
     vcon.fillStyle="black";
     vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
     for(let i=0;i<STAR_MAX;i++)star[i].draw();
-
+    drawSprite(100<<8,100<<8);
     //
+    
     con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,
     0,0,CANVAS_W,CANVAS_H); 
 }
@@ -115,6 +117,5 @@ function gameLoop()
 window.onload=function()
 {
     gameInit();
-    con.drawImage(image,0,0);
 }
 

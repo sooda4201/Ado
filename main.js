@@ -36,13 +36,18 @@ vcan.height=FIELD_H;
 const STAR_MAX=300;
 
 //自機の描画
-const image = new Image();
-image.src = 'sprite.png';
-
-function drawSprite()
+class Image{
+    constructor(){
+        const image = new Image();
+        image.src = 'sprite.png';
+        image.src = 'sprite(1).png';
+    }
+ drawSprite()
 {
     vcon.drawImage(image,0,0);
+}
 };
+
 
 //ランダム
 function rand(min,max)

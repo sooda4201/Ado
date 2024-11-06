@@ -108,14 +108,13 @@ function gameLoop()
 
     //
     con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,
-    0,0,CANVAS_W,CANVAS_H
-    );
+    0,0,CANVAS_W,CANVAS_H); 
 }
 
 //
 window.onload=function()
 {
     gameInit();
-    vcon.drawImage(image,0,0);
+    con.drawImage(image,0,0);
 }
 

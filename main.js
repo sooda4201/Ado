@@ -37,12 +37,45 @@ const STAR_MAX=300;
 
 //自機の描画
 const image = new Image();
-image.src = 'sprite.png';
+image.src = 'sprite(5).png';
 
-function drawSprite()
+//
+class Sprite
+{
+    constructor(x,y,w,h)
+    {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+    }
+}
+
+//
+let sprite = [
+    new Sprite(0,0,22,42),
+    new Sprite(23,0,33,42),
+    new Sprite(57,0,43,42),
+    new Sprite(101,0,33,42),
+    new Sprite(135,0,21,42),
+];
+
+//
+function drawSPrite(snum,x,y)
+{
+    let sx = sprite[snum].x;
+    let sy = sprite[snum].y;
+    let sw = sprite[snum].w;
+    let sh = sprite[snum].h;
+    
+    let px = (x>>8) - sw/2;
+    let py = (y>>8) - sh/2;
+}
+
+/*function drawSprite()
 {
     vcon.drawImage(image,0,0);
-};
+};*/
 
 //ランダム
 function rand(min,max)

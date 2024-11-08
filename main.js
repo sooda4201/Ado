@@ -71,6 +71,9 @@ function drawSprite(snum,x,y)
     let px = (x>>8) - sw/2;
     let py = (y>>8) - sh/2;
 
+    if(px+sw/2<camera_x||px-sw/2>=camera_x+SCREEN_W
+        ||py<camera_y||py>=camera_y+SCREEN_H)return;
+
     vcon.drawImage(image,sx,sy,sw,sh,px,py,sw,sh);
 }
 /*function drawSprite()

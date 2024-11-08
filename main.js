@@ -61,7 +61,7 @@ let sprite = [
 ];
 
 //
-function drawSPrite(snum,x,y)
+function drawSprite(snum,x,y)
 {
     let sx = sprite[snum].x;
     let sy = sprite[snum].y;
@@ -70,8 +70,9 @@ function drawSPrite(snum,x,y)
     
     let px = (x>>8) - sw/2;
     let py = (y>>8) - sh/2;
-}
 
+    vcon.drawImage(spriteImage,sx,sy,sw,sh,px,py,sw,sh);
+}
 /*function drawSprite()
 {
     vcon.drawImage(image,0,0);
@@ -99,8 +100,8 @@ class Star
     {
         let x=this.x>>8;
         let y=this.y>>8;
-        if(x<camera_x||x>=camera_x+SCREEN_W||
-            y<camera_y||y>=camera_y+SCREEN_H
+        if(px+sw/2<camera_x||px-sw/2>=camera_x+SCREEN_W||
+            py+sh/2<camera_y||py-sy/2>=camera_y+SCREEN_H
         )return;
         vcon.fillStyle=rand(0,2)!=0?"66f":"#8af";
         vcon.fillRect(x,y,this.sz,this.sz);
@@ -139,7 +140,7 @@ function gameLoop()
     vcon.fillStyle="black";
     vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
     for(let i=0;i<STAR_MAX;i++)star[i].draw();
-    drawSprite(100<<8,100<<8);
+    drawSprite(2,100<<8,100<<8);
     
     //
     con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,

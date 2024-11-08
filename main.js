@@ -71,7 +71,7 @@ function drawSprite(snum,x,y)
     let px = (x>>8) - sw/2;
     let py = (y>>8) - sh/2;
 
-    vcon.drawImage(spriteImage,sx,sy,sw,sh,px,py,sw,sh);
+    vcon.drawImage(image,sx,sy,sw,sh,px,py,sw,sh);
 }
 /*function drawSprite()
 {

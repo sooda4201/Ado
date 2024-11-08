@@ -100,8 +100,8 @@ class Star
     {
         let x=this.x>>8;
         let y=this.y>>8;
-        if(px+sw/2<camera_x||px-sw/2>=camera_x+SCREEN_W||
-            py+sh/2<camera_y||py-sy/2>=camera_y+SCREEN_H
+        if(x<camera_x||x>=camera_x+SCREEN_W||
+            y<camera_y||y>=camera_y+SCREEN_H
         )return;
         vcon.fillStyle=rand(0,2)!=0?"66f":"#8af";
         vcon.fillRect(x,y,this.sz,this.sz);

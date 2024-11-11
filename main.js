@@ -37,7 +37,7 @@ const STAR_MAX=300;
 
 //自機の描画
 const image = new Image();
-image.src = 'sprite(5).png';
+image.src = 'sprite1.png';
 
 //
 class Sprite

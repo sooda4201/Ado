@@ -156,3 +156,66 @@ window.onload=function()
     gameInit();
 }
 
+//
+class jiki
+{
+    constructor()
+    {
+        this.x = (FIELD_W/2)<<8;
+        this.y = (FIELD_H/2)<<8;
+    }
+}
+let jiki = new jiki();
+
+//
+class jiki
+{
+    constructor()
+    {
+        this.x = (FIELD_W/2)<<8;
+        this.y = (FIELD_H/2)<<8;
+        this.anime = 0;
+    }
+
+    //
+    update()
+    {
+        if(key[37])this.x-=this.speed;
+        if(key[38])this.x-=this.speed;
+        if(key[39])this.x-=this.speed;
+        if(key[40])this.x-=this.speed;
+    }
+
+    //
+    draw()
+    {
+        drawSprite(2+this.anime,this.x,this.y);
+    }
+}
+
+//
+function gameLoop()
+{
+    //
+    for(let i=0;i<STAR_MAX;i++)star[i].update();
+    jiki.update();
+
+    //
+    vcon.fillStyle="black";
+    vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
+
+    for(let i=0;i<STAR_MAX;i++)star[i].draw();
+    jiki.draw();
+
+    //
+    con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,0,0,CANVAS_W,CANVAS_H);
+}
+
+//
+let key=[];
+
+//
+document.onkeydown = function(e)
+{
+    key[e.keyCode] = false;
+}

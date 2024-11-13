@@ -134,105 +134,21 @@ function gameInit()
 
 
 //ゲームループ
-function gameLoop()
-{
-    //移動の処理
-    for(let i=0;i<STAR_MAX;i++)star[i].update();
-    jiki.update();
-
-    //描画の処理
-    vcon.fillStyle="black";
-    vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
-    for(let i=0;i<STAR_MAX;i++)star[i].draw();
-    jiki.draw();
-    //drawSprite(2,100<<8,100<<8);
-    //
-    camera_x = (jiki.x>>8)/FIELD_W*(FIELD_W-SCREEN_W);
-    camera_y = (jiki.y>>8)/FIELD_H*(FIELD_H-SCREEN_H);
-    
-    //
-    con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,
-    0,0,CANVAS_W,CANVAS_H); 
-}
-
 //
-window.onload=function()
-{
-    gameInit();
-}
-
-//
-class jiki
-{
-    constructor()
-    {
-        this.x = (FIELD_W/2)<<8;
-        this.y = (FIELD_H/2)<<8;
-    }
-}
-let jiki = new jiki();
-
-//
-class jiki
-{
-    constructor()
-    {
-        this.x = (FIELD_W/2)<<8;
-        this.y = (FIELD_H/2)<<8;
-        this.anime = 0;
-    }
-
+function gameLoop(...args: []) {
     //
-    update()
-    {
-        if(key[37])
-            {
-                this.x-=this.speed;
-                if(this.anime>-8)this.anime--:
-            }    
-        else if(key[39])
-            {
-                this.x-=this.speed;
-                if(this.anime<8)this.anime++;
-            }    
-        else
-        {
-            if(this.anime>0)this.anime--;
-            if(this.anime<0)this.anime++;
-        }    
-        if(key[38])this.y-=this.speed;
-        if(key[40])this.x-=this.speed;
-
-        //
-        if(this.x<0)this.x=0;
-        if(this.x>=(FIELD_W<<8))this.x=(FIELD_W<<8)-1;
-        if(this.y<0)this.y=0;
-        if(this.y>=(FIELD_H<<8))this.y=(FIELD_H<<8)-1;
-    }
-
-    //
-    draw()
-    {
-        drawSprite(2+this.anime,this.x,this.y);
-    }
-}
-
-//
-function gameLoop()
-{
-    //
-    for(let i=0;i<STAR_MAX;i++)star[i].update();
+    for (let i = 0; i < STAR_MAX; i++) star[i].update();
     jiki.update();
 
     //
-    vcon.fillStyle="black";
-    vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
+    vcon.fillStyle = "black";
+    vcon.fillRect(0, 0, SCREEN_W, SCREEN_H);
 
-    for(let i=0;i<STAR_MAX;i++)star[i].draw();
+    for (let i = 0; i < STAR_MAX; i++) star[i].draw();
     jiki.draw();
 
     //
-    con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,0,0,CANVAS_W,CANVAS_H);
+    con.drawImage(vcan, camera_x, camera_y, SCREEN_W, SCREEN_H, 0, 0, CANVAS_W, CANVAS_H);
 }
 
 //

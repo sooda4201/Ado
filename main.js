@@ -138,12 +138,17 @@ function gameLoop()
 {
     //移動の処理
     for(let i=0;i<STAR_MAX;i++)star[i].update();
+    jiki.update();
 
     //描画の処理
     vcon.fillStyle="black";
     vcon.fillRect(0,0,SCREEN_W,SCREEN_H);
     for(let i=0;i<STAR_MAX;i++)star[i].draw();
-    drawSprite(2,100<<8,100<<8);
+    jiki.draw();
+    //drawSprite(2,100<<8,100<<8);
+    //
+    camera_x = (jiki.x>>8)/FIELD_W*(FIELD_W-SCREEN_W);
+    camera_y = (jiki.y>>8)/FIELD_H*(FIELD_H-SCREEN_H);
     
     //
     con.drawImage(vcan,camera_x,camera_y,SCREEN_W,SCREEN_H,
@@ -180,10 +185,29 @@ class jiki
     //
     update()
     {
-        if(key[37])this.x-=this.speed;
-        if(key[38])this.x-=this.speed;
-        if(key[39])this.x-=this.speed;
+        if(key[37])
+            {
+                this.x-=this.speed;
+                if(this.anime>-8)this.anime--:
+            }    
+        else if(key[39])
+            {
+                this.x-=this.speed;
+                if(this.anime<8)this.anime++;
+            }    
+        else
+        {
+            if(this.anime>0)this.anime--;
+            if(this.anime<0)this.anime++;
+        }    
+        if(key[38])this.y-=this.speed;
         if(key[40])this.x-=this.speed;
+
+        //
+        if(this.x<0)this.x=0;
+        if(this.x>=(FIELD_W<<8))this.x=(FIELD_W<<8)-1;
+        if(this.y<0)this.y=0;
+        if(this.y>=(FIELD_H<<8))this.y=(FIELD_H<<8)-1;
     }
 
     //

@@ -76,10 +76,6 @@ function drawSprite(snum,x,y)
 
     vcon.drawImage(image,sx,sy,sw,sh,px,py,sw,sh);
 }
-/*function drawSprite()
-{
-    vcon.drawImage(image,0,0);
-};*/
 
 //ランダム
 function rand(min,max)
@@ -135,27 +131,24 @@ function gameInit()
 
 //ゲームループ
 //
-function gameLoop(...args: []) {
+function gameLoop()
+{
     //
     for (let i = 0; i < STAR_MAX; i++) star[i].update();
-    jiki.update();
 
     //
     vcon.fillStyle = "black";
     vcon.fillRect(0, 0, SCREEN_W, SCREEN_H);
 
     for (let i = 0; i < STAR_MAX; i++) star[i].draw();
-    jiki.draw();
-
+    drawSprite(2,100<<8,100<<8);
+    
     //
     con.drawImage(vcan, camera_x, camera_y, SCREEN_W, SCREEN_H, 0, 0, CANVAS_W, CANVAS_H);
 }
 
 //
-let key=[];
-
-//
-document.onkeydown = function(e)
+window.onload = function()
 {
-    key[e.keyCode] = false;
+    gameInit();
 }

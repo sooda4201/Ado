@@ -135,13 +135,14 @@ function gameLoop()
 {
     //
     for (let i = 0; i < STAR_MAX; i++) star[i].update();
-
+    jiki.update();
     //
     vcon.fillStyle = "black";
     vcon.fillRect(0, 0, SCREEN_W, SCREEN_H);
 
     for (let i = 0; i < STAR_MAX; i++) star[i].draw();
-    drawSprite(2,100<<8,100<<8);
+    //drawSprite(2,100<<8,100<<8);
+    jiki.draw();
     
     //
     con.drawImage(vcan, camera_x, camera_y, SCREEN_W, SCREEN_H, 0, 0, CANVAS_W, CANVAS_H);
@@ -152,3 +153,26 @@ window.onload = function()
 {
     gameInit();
 }
+
+//
+class Jiki
+{
+    constructor()
+    {
+        this.x = (FIELD_W/2)<<8;
+        this.y = (FIELD_H/2)<<8;
+        this.anime = 0;
+    }
+
+    //
+    update()
+    {
+    }
+
+    //
+    draw()
+    {
+        drawSprite(2+this.anime,this.x,this.y);
+    }
+}
+let jiki = new Jiki();

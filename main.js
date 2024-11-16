@@ -45,12 +45,12 @@ class Jiki
 
     update()
     {
-        if(key[37])
+        if(key[37]&&this.x>this.speed)
         {
             this.x -=this.speed;
             if(this.anime>8)this.anime--;
         }
-        else if(key[39])
+        else if(key[39]&&this.x<=(FIELD_W<<8)-this.speed)
         {
             this.x +=this.speed;
             if(this.anime<8)this.anime++;
@@ -60,8 +60,11 @@ class Jiki
             if(this.anime>0)this.anime--;
             if(this.anime<0)this.anime++;
         }
-        if(key[38])this.y -=this.speed;    
-        if(key[40])this.y +=this.speed;
+        if(key[38]&&this.y>this.speed)
+            this.y -=this.speed;
+        if(key[40]&&this.y<=(FIELD_W<<8)-this.speed)
+            this.y +=this.speed;
+
     }
 
     draw()

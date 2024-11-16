@@ -63,7 +63,7 @@ class Jiki
         }
         if(key[38]&&this.y>this.speed)
             this.y -=this.speed;
-        if(key[40]&&this.y<=(FIELD_W<<8)-this.speed)
+        if(key[40]&&this.y<=(FIELD_H<<8)-this.speed)
             this.y +=this.speed;
 
     }

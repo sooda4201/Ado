@@ -17,6 +17,47 @@ const FIELD_H=SCREEN_H*2;
 let camera_x=0;
 let camera_y=0;
 
+//
+let key=[];
+
+//
+document.onkeydown = function(e)
+{
+    key[e.keyCode]=true;
+}
+
+//
+document.onkeyup = function(e)
+{
+    key[e.keyCode]=false;
+}
+
+//
+class Jiki
+{
+    constructor()
+    {
+        this.x = (FIELD_W/2)<<8;
+        this.y = (FIELD_H/2)<<8;
+        this.speed = 512;
+        this.anime = 0;
+    }
+
+    update()
+    {
+        if(key[37])this.x -=this.speed;
+        if(key[38])this.y -=this.speed;
+        if(key[39])this.x +=this.speed;
+        if(key[40])this.y +=this.speed;
+    }
+
+    draw()
+    {
+        drawSprite(2+this.anime,this.x,this.y);
+    }
+}
+let jiki = new Jiki();
+
  //星の実体
  let star=[];
 
@@ -141,7 +182,6 @@ function gameLoop()
     vcon.fillRect(0, 0, SCREEN_W, SCREEN_H);
 
     for (let i = 0; i < STAR_MAX; i++) star[i].draw();
-    //drawSprite(2,100<<8,100<<8);
     jiki.draw();
     
     //
@@ -154,25 +194,3 @@ window.onload = function()
     gameInit();
 }
 
-//
-class Jiki
-{
-    constructor()
-    {
-        this.x = (FIELD_W/2)<<8;
-        this.y = (FIELD_H/2)<<8;
-        this.anime = 0;
-    }
-
-    //
-    update()
-    {
-    }
-
-    //
-    draw()
-    {
-        drawSprite(2+this.anime,this.x,this.y);
-    }
-}
-let jiki = new Jiki();

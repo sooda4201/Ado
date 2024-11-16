@@ -205,7 +205,7 @@ function gameLoop()
 
     //カメラの範囲
     camera_x = (jiki.x>>8)/FIELD_W*(FIELD_W-SCREEN_W);
-    camera_x = (jiki.y>>8)/FIELD_H*(FIELD_H-SCREEN_H);
+    camera_y = (jiki.y>>8)/FIELD_H*(FIELD_H-SCREEN_H);
     //
     con.drawImage(vcan, camera_x, camera_y, SCREEN_W, SCREEN_H, 0, 0, CANVAS_W, CANVAS_H);
 }

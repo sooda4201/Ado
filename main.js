@@ -48,7 +48,7 @@ class Jiki
         if(key[37]&&this.x>this.speed)
         {
             this.x -=this.speed;
-            if(this.anime>8)this.anime--;
+            if(this.anime>-8)this.anime--;
         }
         else if(key[39]&&this.x<=(FIELD_W<<8)-this.speed)
         {

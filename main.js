@@ -196,7 +196,7 @@ function gameLoop()
     jiki.update();
     //
     vcon.fillStyle = "black";
-    vcon.fillRect(0, 0, SCREEN_W, SCREEN_H);
+    vcon.fillRect(camera_x, camera_y, SCREEN_W, SCREEN_H);
 
     for (let i = 0; i < STAR_MAX; i++) star[i].draw();
     jiki.draw();

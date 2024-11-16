@@ -45,15 +45,23 @@ class Jiki
 
     update()
     {
-        if(key[37])this.x -=this.speed;
+        if(key[37])
+            {
+                this.x -=this.speed;
+                if(this.anime>-8)this.anime--;
+            }        
         if(key[38])this.y -=this.speed;
-        if(key[39])this.x +=this.speed;
+        if(key[39])
+            {
+                this.x +=this.speed;
+                if(this.anime<8)this.anime++;
+            }
         if(key[40])this.y +=this.speed;
     }
 
     draw()
     {
-        drawSprite(2+this.anime,this.x,this.y);
+        drawSprite(2+this.anime/4,this.x,this.y);
     }
 }
 let jiki = new Jiki();

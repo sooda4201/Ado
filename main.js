@@ -43,6 +43,7 @@ class Jiki
         this.anime = 0;
     }
 
+    //自機の描画
     update()
     {
         if(key[37]&&this.x>this.speed)
@@ -199,7 +200,12 @@ function gameLoop()
 
     for (let i = 0; i < STAR_MAX; i++) star[i].draw();
     jiki.draw();
-    
+
+    //自機の範囲
+
+    //カメラの範囲
+    camera_x = (jiki.x>>8)/FIELD_W*(FIELD_W-SCREEN_W);
+    camera_x = (jiki.y>>8)/FIELD_H*(FIELD_H-SCREEN_H);
     //
     con.drawImage(vcan, camera_x, camera_y, SCREEN_W, SCREEN_H, 0, 0, CANVAS_W, CANVAS_H);
 }

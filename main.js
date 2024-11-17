@@ -32,6 +32,31 @@ document.onkeyup = function(e)
     key[e.keyCode]=false;
 }
 
+//弾クラス
+class Tama
+{
+    constructor(x,y,vx,vy)
+    {
+        this.sn = 5;
+        this.x = x;
+        this.y = y;
+        this.vx = vx;
+        this.xy = vy;
+    }
+
+    update()
+    {
+        this.x +=this.vx;
+        this.y +=this.vy;
+    }
+
+    draw()
+    {
+        drawSprite(this.sn,this.x,this.y);
+    }
+}
+let tame=[];
+
 //
 class Jiki
 {
@@ -43,9 +68,13 @@ class Jiki
         this.anime = 0;
     }
 
-    //自機の描画
+    //自機の移動
     update()
     {
+        if(key[32])
+        {
+            tama.push(new Tama(this.x,this.y,0,-2000));
+        }
         if(key[37]&&this.x>this.speed)
         {
             this.x -=this.speed;
@@ -111,11 +140,14 @@ class Sprite
 
 //
 let sprite = [
-    new Sprite(0,0,22,42),
-    new Sprite(23,0,33,42),
-    new Sprite(57,0,43,42),
-    new Sprite(101,0,33,42),
-    new Sprite(135,0,21,42),
+    new Sprite(0,0,22,42),//0,自機,左２
+    new Sprite(23,0,33,42),//1,自機,左１
+    new Sprite(57,0,43,42),//2,自機,正面
+    new Sprite(101,0,33,42),//3,自機,右１
+    new Sprite(135,0,21,42),//4,自機,右２
+
+    new Sprite(0,50,3,7),//５,弾１
+    new Sprite(40,50,5,5),//６,弾２
 ];
 
 //
@@ -193,17 +225,18 @@ function gameLoop()
 {
     //
     for (let i = 0; i < STAR_MAX; i++) star[i].update();
+    for (let i = 0; i < tama.length; i++) tama[i].update();
     jiki.update();
     //
     vcon.fillStyle = "black";
     vcon.fillRect(camera_x, camera_y, SCREEN_W, SCREEN_H);
 
     for (let i = 0; i < STAR_MAX; i++) star[i].draw();
+    for(let i=0;i<tama.lengh;i++)tama[i].draw();
     jiki.draw();
 
-    //自機の範囲
-
-    //カメラの範囲
+    //自機の範囲　0~
+    //カメラの範囲 0~
     camera_x = (jiki.x>>8)/FIELD_W*(FIELD_W-SCREEN_W);
     camera_y = (jiki.y>>8)/FIELD_H*(FIELD_H-SCREEN_H);
     //

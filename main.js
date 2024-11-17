@@ -232,7 +232,7 @@ function gameLoop()
     vcon.fillRect(camera_x, camera_y, SCREEN_W, SCREEN_H);
 
     for (let i = 0; i < STAR_MAX; i++) star[i].draw();
-    for(let i=0;i<tama.lengh;i++)tama[i].draw();
+    for(let i=0;i<tama.length;i++)tama[i].draw();
     jiki.draw();
 
     //自機の範囲　0~

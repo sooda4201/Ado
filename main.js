@@ -42,12 +42,16 @@ class Tama
         this.y = y;
         this.vx = vx;
         this.xy = vy;
+        this.kill = false;
     }
 
     update()
     {
         this.x +=this.vx;
         this.y +=this.vy;
+
+        if(this.x<0||this.x>FIELD_W<<8
+            ||this.y<0||this.y>FIELD_H<<8)this.kill = true;
     }
 
     draw()
@@ -225,7 +229,11 @@ function gameLoop()
 {
     //
     for (let i = 0; i < STAR_MAX; i++) star[i].update();
-    for (let i = 0; i < tama.length; i++) tama[i].update();
+    for (let i = 0; tama.length-1 >= 0; i--) 
+    {
+        tama[i].update();
+        if(tama[i].kill)tama.splice(i,1);
+    }
     jiki.update();
     //
     vcon.fillStyle = "black";

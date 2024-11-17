@@ -55,7 +55,7 @@ class Tama
         drawSprite(this.sn,this.x,this.y);
     }
 }
-let tame=[];
+let tama=[];
 
 //
 class Jiki

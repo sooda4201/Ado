@@ -231,7 +231,7 @@ function gameLoop()
 {
     //
     for (let i = 0; i < STAR_MAX; i++) star[i].update();
-    for (let i = 0; tama.length-1 >= 0; i--) 
+    for (let i =tama.length-1;i>=0;i--) 
     {
         tama[i].update();
         if(tama[i].kill)tama.splice(i,1);

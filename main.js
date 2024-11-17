@@ -1,3 +1,5 @@
+//デバッグのフラグ
+const DEBUG=true;
 //ゲームスピード
 const GAME_SPEED=1000/60;
 
@@ -249,6 +251,13 @@ function gameLoop()
     camera_y = (jiki.y>>8)/FIELD_H*(FIELD_H-SCREEN_H);
     //
     con.drawImage(vcan, camera_x, camera_y, SCREEN_W, SCREEN_H, 0, 0, CANVAS_W, CANVAS_H);
+    
+    if(DEBUG)
+    {
+        con.font="20px 'Impact'";
+        con.fillStyle="white";
+        con.fillText("Tama:"+tama.length,20,20)
+    }
 }
 
 //

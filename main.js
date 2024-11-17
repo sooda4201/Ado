@@ -153,7 +153,7 @@ let sprite = [
     new Sprite(135,0,21,42),//4,自機,右２
 
     new Sprite(0,50,3,7),//５,弾１
-    new Sprite(40,50,5,5),//６,弾２
+    new Sprite(4,50,5,5),//６,弾２
 ];
 
 //

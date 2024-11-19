@@ -256,7 +256,7 @@ function gameLoop()
     {
         con.font="20px 'Impact'";
         con.fillStyle="white";
-        con.fillText("Tama:"+tama.length,20,20)
+        con.fillText("Tama:"+tama.length,20,20);
     }
 }
 

@@ -1,5 +1,5 @@
 //デバッグのフラグ
-const DEBUG=true;
+//const DEBUG=true;
 //ゲームスピード
 const GAME_SPEED=1000/60;
 
@@ -44,7 +44,7 @@ class Tama
         this.y = y;
         this.vx = vx;
         this.xy = vy;
-        this.kill = false;
+        //this.kill = false;
     }
 
     update()
@@ -52,8 +52,8 @@ class Tama
         this.x +=this.vx;
         this.y +=this.vy;
 
-        if(this.x<0||this.x>FIELD_W<<8
-            ||this.y<0||this.y>FIELD_H<<8)this.kill = true;
+        /*if(this.x<0||this.x>FIELD_W<<8
+            ||this.y<0||this.y>FIELD_H<<8)this.kill = true;*/
     }
 
     draw()
@@ -231,11 +231,12 @@ function gameLoop()
 {
     //
     for (let i = 0; i < STAR_MAX; i++) star[i].update();
-    for (let i =tama.length-1;i>=0;i--) 
+    for(let i=0;i<tama.length;i++)tama[i].update();
+   /* for (let i =tama.length-1;i>=0;i--) 
     {
         tama[i].update();
         if(tama[i].kill)tama.splice(i,1);
-    }
+    }*/
     jiki.update();
     //
     vcon.fillStyle = "black";
@@ -252,12 +253,12 @@ function gameLoop()
     //
     con.drawImage(vcan, camera_x, camera_y, SCREEN_W, SCREEN_H, 0, 0, CANVAS_W, CANVAS_H);
     
-    if(DEBUG)
+    /*if(DEBUG)
     {
         con.font="20px 'Impact'";
         con.fillStyle="white";
         con.fillText("Tama:"+tama.length,20,20);
-    }
+    }*/
 }
 
 //

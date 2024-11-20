@@ -77,6 +77,8 @@ class Jiki
         this.y = (FIELD_H/2)<<8;
         this.speed = 512;
         this.anime = 0;
+        this.reload=0;
+        this.relo2=0;
     }
 
     //自機の移動
@@ -84,7 +86,10 @@ class Jiki
     {
         if(key[32]&&this.reload==0)
         {
-            tama.push(new Tama(this.x,this.y,0,-2000));
+            tama.push(new Tama(this.x+(4<<8),this.y-(10<<8),0,-2000));
+            tama.push(new Tama(this.x-(4<<8),this.y-(10<<8),0,-2000));
+            tama.push(new Tama(this.x+(4<<8),this.y-(10<<8),80,-2000));
+            tama.push(new Tama(this.x-(4<<8),this.y-(10<<8),-80,-2000));
 
             this.reload=4;
             if(++this.relo2==4)

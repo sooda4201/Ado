@@ -43,7 +43,7 @@ class Tama
         this.x = x;
         this.y = y;
         this.vx = vx;
-        this.xy = vy;
+        this.vy = vy;
         this.kill = false;
     }
 

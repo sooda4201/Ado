@@ -1,5 +1,10 @@
 //デバッグのフラグ
 const DEBUG=true;
+
+let drawCount=0;
+let fps=0;
+let lastTime=Date.now();
+
 //ゲームスピード
 const GAME_SPEED=1000/60;
 
@@ -77,10 +82,18 @@ class Jiki
     //自機の移動
     update()
     {
-        if(key[32])
+        if(key[32]&&this.reload==0)
         {
             tama.push(new Tama(this.x,this.y,0,-2000));
+
+            this.reload=4;
+            if(++this.relo2==4)
+            {
+                this.reload=20;
+                this.relo2=0;
+            }
         }
+        if(!key[32])this.reload=this.relo2=0;
         if(key[37]&&this.x>this.speed)
         {
             this.x -=this.speed;
@@ -254,8 +267,16 @@ function gameLoop()
     
     if(DEBUG)
     {
+        drawCount++;
+        if(lastTime+1000<=Date.now())
+        {
+            fps=drawCount;
+            drawCount=0;
+            lastTime=Date.now();
+        }
         con.font="20px 'Impact'";
         con.fillStyle="white";
+        con.fillText("FPS:"+fps,20,20);
         con.fillText("Tama:"+tama.length,20,20);
     }
 }
